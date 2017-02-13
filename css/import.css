@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #13458c;
+}
+.wrapper {
+  width: 1500px;
+  margin: 0 auto;
+}
+nav {
+  float: left;
+  width: 200px;
+  height: 100vh;
+  background-color: #314048;
+}
+nav ul {
+  height: 100%;
+  margin: 0 auto;
+}
+nav ul li {
+  width: auto;
+  padding: 15px 0;
+  padding-left: 45px;
+}
+nav ul li a {
+  font-size: 85%;
+  color: #d3d3d3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+nav ul i {
+  font-size: 95%;
+  color: #d3d3d3;
+  padding-right: 5px;
+}
+nav li:hover {
+  background-color: #1c252a;
+}
+nav li:hover a {
+  color: #fff;
+}
+nav li:hover i {
+  color: #fff;
+}
+.main-contents {
+  width: 900px;
+  float: left;
+  margin-top: 20px;
+}
+.main-contents h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  font-size: 115%;
+}
+.main-contents .date {
+  margin-top: 10px;
+}
+.main-contents .date .select_date {
+  text-align: center;
+}
+.main-contents .date .select_date i {
+  font-size: 130%;
+  vertical-align: -4px;
+  padding-right: 7px;
+}
+.main-contents .date .select_date span {
+  font-size: 100%;
+  vertical-align: middle;
+}
+.main-contents .date_bar {
+  width: 100%;
+  background-color: #d7e6f8;
+  height: 30px;
+  margin-top: 10px;
+}
+.main-contents .expense_icon ul {
+  margin-top: 10px;
+  text-align: center;
+}
+.main-contents .expense_icon ul li {
+  display: inline-block;
+  margin: 0 30px;
+  padding: 0 10px;
+}
+.main-contents .expense_icon ul li .icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center 2px;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+}
+.main-contents .expense_icon ul li .eat {
+  background-image: url(../image/eat.png);
+}
+.main-contents .expense_icon ul li .take {
+  background-image: url(../image/take.png);
+}
+.main-contents .expense_icon ul li .see {
+  background-image: url(../image/see.png);
+}
+.main-contents .expense_icon ul li .shop {
+  width: 50px;
+  height: 50px;
+  background-image: url(../image/shop.png);
+  border-radius: 10px;
+}
+.main-contents .expense_icon ul li .sleep {
+  background-image: url(../image/sleep.png);
+}
+.main-contents .expense_icon ul li .etc {
+  background-image: url(../image/etc.png);
+}
+.main-contents .expense_icon ul li .description {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  color: #c4c4c4;
+  font-weight: 600;
+  position: relative;
+  top: -2px;
+}
+.main-contents .expense_icon ul li.on {
+  border: 4px #c9dbf2 solid;
+  border-radius: 10px;
+}
+.main-contents .expense_icon ul li.on .description {
+  color: #000;
+}
+.main-contents .expenses__list {
+  margin-top: 15px;
+  float: left;
+  width: 400px;
+  height: 400px;
+  background-color: #edf0f2;
+  padding: 20px 80px;
+  font-size: 120%;
+}
+.main-contents .expenses__list .item {
+  margin-top: 5px;
+}
+.main-contents .expenses__list .item .ion-card {
+  float: left;
+  font-size: 170%;
+  color: #999;
+  padding-right: 10px;
+  position: relative;
+  top: -7px;
+}
+.main-contents .expenses__list .item .ion-cash {
+  float: left;
+  font-size: 150%;
+  color: #999;
+  padding-right: 10px;
+  position: relative;
+  top: -7px;
+}
+.main-contents .expenses__list .item .item_description {
+  float: left;
+}
+.main-contents .expenses__list .item .right {
+  float: right;
+}
+.main-contents .expenses__list .item .right .item__value {
+  float: left;
+  transition: transform 0.3s;
+}
+.main-contents .expenses__list .item .right .item__delete {
+  float: left;
+}
+.main-contents .expenses__list .item .right .item__delete .item__delete--btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  display: none;
+}
+.main-contents .expenses__list .item:hover .right .item__delete--btn {
+  display: block;
+}
+.main-contents .expenses__list .item:hover .right .item__value {
+  transform: translateX(-20px);
+}
+.main-contents .calculator {
+  background-color: #e5e5e5;
+  width: 300px;
+  height: 400px;
+  float: right;
+  margin-top: 15px;
+  padding: 20px 10px;
+}
+.main-contents .calculator .select_icon {
+  padding-bottom: 10px;
+}
+.main-contents .calculator .select_icon .add_type {
+  font-family: inherit;
+}
+.main-contents .calculator .calculate_value {
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  text-align: center;
+}
+.main-contents .calculator .calculate_value input {
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  text-align: left;
+  text-indent: 10px;
+  font-family: inherit;
+  font-size: 120%;
+  border: none;
+}
+.main-contents .calculator .title {
+  width: 100%;
+  margin-top: 10px;
+}
+.main-contents .calculator .title input {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  border: none;
+  font-family: inherit;
+  font-size: 100%;
+  text-align: center;
+}
+.main-contents .calculator .keys {
+  width: 100%;
+  border: 1px #d3d3d3 solid;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-left: none;
+  border-bottom: none;
+}
+.main-contents .calculator .keys span {
+  font-size: 90%;
+  float: left;
+  width: 25%;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  display: inline-block;
+  background-color: #fff;
+  border-left: 1px #d3d3d3 solid;
+  border-bottom: 1px #d3d3d3 solid;
+  box-sizing: border-box;
+}
+.main-contents .calculator .add__btn {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 130%;
+  border: none;
+  display: block;
+}
+.main-contents .calculator .add__btn span {
+  font-size: 80%;
+  vertical-align: top;
+}
+.main-contents .budget__expense {
+  margin-top: 30px;
+}
+.main-contents .budget__expense .budget__expenses--title {
+  float: left;
+  margin-right: 50px;
+}
+.main-contents .budget__expense .right .budget__expenses--value {
+  float: left;
+}
+.main-contents .card__expense {
+  margin-top: 30px;
+}
+.main-contents .card__expense .card__expenses--title {
+  float: left;
+  margin-right: 50px;
+}
+.main-contents .card__expense .right .card__expenses--value {
+  float: left;
+}
+.main-contents .cash__expense {
+  margin-top: 30px;
+}
+.main-contents .cash__expense .cash__expenses--title {
+  float: left;
+  margin-right: 50px;
+}
+.main-contents .cash__expense .right .cash__expenses--value {
+  float: left;
+}
