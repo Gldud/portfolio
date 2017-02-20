@@ -3,8 +3,7 @@
  var operand;
  var selectIdx = 0;
  var selectClass=".eat";
- var selectTotalClass = ".eatTotal";
- var displayExpenseTotalClass='.displayEatTotal';
+ var selectTotalClass = ".eatTotal"
  var budgetController = (function(){
     var ExpenseCard = function(id, description, value){
         this.id = id;
@@ -186,10 +185,7 @@
               shopExpense:data.shop.totals.totalExpense,
               sleepExpense:data.sleep.totals.totalExpense,
               etcExpense:data.etc.totals.totalExpense,
-              totalCardExpense:data.eat.totals.card+data.take.totals.card+data.see.totals.card
-              +data.shop.totals.card+data.sleep.totals.card+data.etc.totals.card,
-              totalCashExpense:data.eat.totals.cash+data.take.totals.cash+data.see.totals.cash+
-              data.shop.totals.cash+data.sleep.totals.cash+data.etc.totals.cash
+              
           }
          },
           
@@ -225,7 +221,7 @@ var UIController = (function(){
           ///Create HTML String
          
           if(type === 'card'){
-               html = '<div class="item clearfix" id="card-%id%"><img src="image/credit-card.png"><div class="item_description down">%description%</div><div class="right clearfix down"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button></div></div></div>'
+               html = '<div class="item clearfix" id="card-%id%"><i class="ion-card"></i><div class="item_description down">%description%</div><div class="right clearfix down"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button></div></div></div>'
           }else if(type ==='cash'){
                html = '<div class="item clearfix" id="cash-%id%"><img src="image/piggy-bank.png"><div class="item_description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button></div></div></div>'    
           }
@@ -236,11 +232,9 @@ var UIController = (function(){
           document.querySelector(selectClass).insertAdjacentHTML('beforeend',newHtml);
         },
         
-        deleteListItem:function(itemParent,seletorID){
-            var elParentName = itemParent.className.split(" ")[1];  
-            var elParent =  document.getElementsByClassName(elParentName)[0];
-            var el = elParent.querySelector('#'+seletorID);
-            el.parentNode.removeChild(el);
+        deleteListItem:function(seletorID){
+            var el =  document.getElementById(seletorID);
+           el.parentNode.removeChild(el)
         },
         
         clearFields:function(){
@@ -258,9 +252,7 @@ var UIController = (function(){
             document.querySelector(selectTotalClass).children[1].children[1].children[0].textContent = obj.totalCard;
             document.querySelector(selectTotalClass).children[2].children[1].children[0].textContent = obj.totalCash;
             document.querySelector(DOMstrings.travelExpenses).textContent=obj.travelExpense;
-            document.querySelector(displayExpenseTotalClass).textContent=obj.totalExpense;
-            document.querySelector(".card").textContent = obj.totalCardExpense;
-            document.querySelector(".cash").textContent=obj.totalCashExpense;
+            
         },
         
         getDOMstring:function(){
@@ -289,7 +281,6 @@ var controller = (function(budgetCtrl, UICtrl){
             UICtrl.displayBudget(expense);
             //차트 다시 그리기 
             DrawChart();
-            DrawChart2();
     };
     
     var ctrlAddItem = function(){
@@ -307,30 +298,23 @@ var controller = (function(budgetCtrl, UICtrl){
     };
     
     var ctrlDeleteItem = function(event){
-        var itemID,splitID,type,ID,item;
-        item = event.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+        var itemID,splitID,type,ID;
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         if(itemID){
             splitID = itemID.split('-');
             type = splitID[0];
             ID = parseInt(splitID[1]); 
             budgetCtrl.deleteItem(type,ID);
-            UICtrl.deleteListItem(item,itemID);
+            UICtrl.deleteListItem(itemID);
              updateBudget();
         }
     };
-    
-     
+        
     return{
         init:function(){
-            var alreadyItem,alreadyItem2;
+            console.log('Application has started.');
             setupEventListeners();
-            alreadyItem = budgetCtrl.addItem('card','Lime juice',2000);
-            alreadyItem2 = budgetCtrl.addItem('cash','hamburger',3500)
-            UICtrl.addListItems(alreadyItem,'card');
-            UICtrl.addListItems(alreadyItem2,'cash');
-            updateBudget();
-    
+            
         },
        
         

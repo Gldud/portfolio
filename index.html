@@ -9,12 +9,19 @@
 </head>
 <body>
   <header>
-    <div class="top-icons">
-      
-      
+    <div class="wrapper clearfix">
+       <!--<div class="search">-->
+       <!--  <i class="ion-search"></i>-->
+       <!--  <span>Search</span>-->
+       <!--</div>-->
+      <!-- <div class="top-btn">-->
+      <!--  <a href="#" class="btn myaccount">My account</a>-->
+      <!--  <a href="#" class="btn logout">Log out</a>-->
+       
+      <!--</div>-->
     </div>
   </header>
-  <div class="wrapper">
+  <div class="wrapper clearfix">
   <nav>
       <ul>
           <li>
@@ -63,51 +70,72 @@
         <i class="ion-android-calendar"></i>
         <span>Oct 15 2015 - Oct 17 2015</span>
       </div>
-      <div class="date_bar"></div>
+      <div class="date_bar">
+        <ul>
+          <li>
+            <i class="ion-chevron-left"></i>
+          </li>
+          <li>17</li>
+          <li>18</li>
+          <li>19</li>
+          <li>20</li>
+          <li>21</li>
+          <li>22</li>
+          <li>23</li>
+          <li>24</li>
+          <li>25</li>
+          <li>26</li>
+          <li>27</li>
+          <li>28</li>
+          <li>29</li>
+          <li>
+            <i class="ion-chevron-right"></i>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="expense_icon">
-      <ul>
-        <li>
-          <span class="eat icon"></span>
+    <div class="expense_icon_collection">
+      <ul class="expense_icon">
+        <li class="on">
+          <span class="eati icon"></span>
           <span class="description">eat</span>
         </li>
         <li>
-          <span class="take icon"></span>
+          <span class="takei icon"></span>
           <span class="description">take</span>
         </li>
         <li>
-          <span class="see icon"></span>
+          <span class="seei icon"></span>
            <span class="description">see</span>
         </li>
-        <li class="on">
-          <span class="shop icon "></span>
+        <li >
+          <span class="shopi icon "></span>
            <span class="description">shop</span>
         </li>
         <li>
-          <span class="sleep icon"></span>
+          <span class="sleepi icon"></span>
            <span class="description" >sleep</span>
         </li>
         <li>
-          <span class="etc icon"></span>
+          <span class="etci icon"></span>
            <span class="description">etc</span>
         </li>
       </ul>
     </div>
    <div class="container clearfix">
-  <div class="expenses__list">
+      <div class="expenses__list eat">
       <!--<div class="item clearfix" id="income-0">-->
-      <!--  <i class="ion-card"></i>-->
+      <!--  <img src="image/credit-card.png">-->
       <!--  <div class="item_description">car</div>-->
       <!--  <div class="right clearfix">-->
       <!--    <div class="item__value">- 900.00</div>-->
       <!--    <div class="item__delete">-->
       <!--        <button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button>-->
       <!--    </div>-->
-          
-      <!--  </div>-->
+      <!--    </div>-->
       <!--</div>-->
       <!-- <div class="item clearfix" id="income-1">-->
-      <!--  <i class="ion-cash"></i>-->
+      <!--  <img src="image/piggy-bank.png">-->
       <!--  <div class="item_description">bracelet</div>-->
       <!--  <div class="right clearfix">-->
       <!--     <div class="item__value">- 900.00</div>-->
@@ -116,8 +144,27 @@
       <!--    </div>-->
       <!--  </div>-->
       <!--</div>-->
-    </div>
-
+      <!--<div class="item clearfix" id="income-2">-->
+      <!--  <img src="image/piggy-bank.png">-->
+      <!--  <div class="item_description">bracelet</div>-->
+      <!--  <div class="right clearfix">-->
+      <!--     <div class="item__value">- 900.00</div>-->
+      <!--    <div class="item__delete">-->
+      <!--        <button class="item__delete--btn"><i class="ion-ios-trash-outline"></i></button>-->
+      <!--    </div>-->
+      <!--  </div>-->
+      <!--</div>-->
+      </div>
+      <div class="expenses__list take">
+      </div>
+      <div class="expenses__list see">
+      </div>
+      <div class="expenses__list shop">
+      </div>
+      <div class="expenses__list sleep">
+      </div>
+      <div class="expenses__list etc">
+      </div>
     
     <div class="calculator">
       <div class="select_icon">
@@ -125,30 +172,38 @@
           <option value="cash" selected>cash</option>
           <option value="card">card</option>
         </select>
+        <div class="right clearfix">
+          <i class="ion-arrow-swap"></i>
+          <span>Myanmar(Kyat)</span>
+        </div>
       </div>
       <div class="calculate_value">
-        <input type="text" name="number" class = "add__value" placeholder = 0 />
+        <input type="number" name="number" id = "display" placeholder = 0 />
       </div>
       <div class="title">
         <input type="text" class="add__description" name="title" placeholder="title"/>
       </div>
       <div class="keys clearfix">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span class="operator">+</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span class="operator">-</span>
-        <span>7</span>
-        <span>8</span>
-        <span>9</span>
-        <span class="operator">÷</span>
-        <span>.</span>
-         <span>0</span>
-        <span class="eval">=</span>
-        <span class="operator">x</span>
+        
+        <button value="1" onClick="addChar('1')">1</button>
+        <button value="2" onClick="addChar('2')">2</button>
+        <button value="3" onClick="addChar('3')">3</button>
+        <button class="operator" value="+" onClick="addOperand('+')">+</button>
+        <button value="4" onClick="addChar('4')">4</button>
+        <button value="5" onClick="addChar('5')">5</button>
+        <button value="6" onClick="addChar('6')">6</button>
+        <button class="operator" value="-" onClick="addOperand('-')">-</button>
+        <button value="7" onClick="addChar('7')">7</button>
+        <button value="8" onClick="addChar('8')">8</button>
+        <button value="9" onClick="addChar('9')">9</button>
+        <button class="operator" value="/" onClick="addOperand('/')">÷</button>
+        <button>.</button>
+        <button value="0" onClick="addChar('0')">0</button>
+        <button class="eval" value="=" name="enter" onClick="Calculate()">=</button>
+        <button class="operator" value="*" onClick="addOperand('*')">x</button>
+        <button class="clear" value ="C" onClick="Clear()">C</button>
+        <button class="backspace" value ="<-"  onClick="BackSpace()">←</button>
+        <button class="change_sign" value ="+/-" onClick="changeSign()">+ / -</button>
       </div>
       <button class="add__btn">
         <span>save</span>
@@ -156,31 +211,320 @@
       </button>
       </div>
     </div>
-       <div class="budget__expense">
-          <div class="budget__expenses--title">Total</div>
-          <div class="right clearfix">
-            <div class="budget__expenses--value"> 1,954.36</div>
+       <div class="totalall__expenses eatTotal">
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
+          </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
+         </div>
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
           </div>
        </div>
-       <div class="card__expense">
-         <div class="card__expenses--title">card</div>
-          <div class="right clearfix">
-            <div class="card__expenses--value"> 1,954.36</div>
+       <div class="totalall__expenses takeTotal">
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
           </div>
-         </div>
-       <div class="cash__expense">
-         <div class="cash__expenses--title">cash</div>
-          <div class="right clearfix">
-            <div class="cash__expenses--value"> 1,954.36</div>
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
           </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
          </div>
-         
+       </div>
+       <div class="totalall__expenses seeTotal">
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
+          </div>
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
+          </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
+         </div>
+       </div>
+       <div class="totalall__expenses shopTotal">
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
+          </div>
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
+          </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
+         </div>
+       </div>
+       <div class="totalall__expenses sleepTotal">
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
+          </div>
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
+          </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
+         </div>
+       </div>
+       <div class="totalall__expenses etcTotal">
+          <div class="total__expenses">
+            <div class="total__expenses--title">Total</div>
+            <div class="right clearfix">
+              <div class="total__expenses--value"></div>
+            </div>
+          </div>
+          <div class="card__expenses">
+             <div class="card__expenses--title">card</div>
+             <div class="right clearfix">
+              <div class="card__expenses--value"></div>
+             </div>
+          </div>
+          <div class="cash__expenses">
+             <div class="cash__expenses--title">cash</div>
+             <div class="right clearfix">
+               <div class="cash__expenses--value"></div>
+             </div>
+         </div>
+       </div>
+       <div class="travel_expenses">
+         <div class="travel__expenses--title">Travel expenses</div>
+             <div class="right clearfix">
+               <div class="travel__expenses--value"></div>
+             </div>
          
        </div>
+      </div>
+      <div class="chart">
+        <div id="donutchart"></div>
+        <div class="table">
+          <ul>
+            <li>
+              <span class="item">Food&drink</span>
+              <span class="price displayEatTotal">0</span>
+              <span class="line"></span>
+            </li>
+            <li>
+              <span class="item">Transportation</span>
+               <span class="price displayTakeTotal">0</span>
+              <span class="line"></span>
+            </li>
+            <li>
+              <span class="item">Sightseeing</span>
+              <span class="price displaySeeTotal">0</span>
+              <span class="line"></span>
+            </li>
+            <li>
+              <span class="item">Shopping</span>
+              <span class="price displayShopTotal">0</span>
+              <span class="line"></span>
+            </li>
+            <li>
+              <span class="item">Accommodation</span>
+              <span class="price displaySleepTotal">0</span>
+              <span class="line"></span>
+            </li>
+            <li>
+              <span class="item">Others</span>
+              <span class="price displayEtcTotal">0</span>
+              <span class="line"></span>
+            </li>
+          </ul>
+        </div>
+        <div id="piechart"></div>
+        <div class="table2">
+          <ul>
+            <li>
+              <span class="payment">Card</span>
+              <span class="using card">0</span>
+              <span class = "line"></span>
+            </li>
+            <li>
+              <span class="payment">Cash</span>
+              <span class="using cash">0</span>
+              <span class = "line"></span>
+            </li>
+            <li>
+              <span class="travel__expenses--title">Total Expenses</span>
+              <span class="travel__expenses--value">0</span>
+              <span class = "line"></span>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
     </div>
-  
-   
- </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="traveler.js"></script>
+  
+  <script type="text/javascript">
+ 
+   function DrawChart()
+   {
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+       
+     
+       function drawChart() {
+          //var eat=budgetController.getExpense().eatExpense;
+          //alert(eat);
+          
+          if(budgetController.getExpense().totalExpense==0 )
+          {
+              return false;
+          }
+          
+          var eat=budgetController.getExpense().eatExpense;
+          var take=budgetController.getExpense().takeExpense;
+          var see= budgetController.getExpense().seeExpense;
+          var shop = budgetController.getExpense().shopExpense;
+          var sleep=budgetController.getExpense().sleepExpense;
+          var etc =budgetController.getExpense().etcExpense;
+          
+       
+          var data2 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Eat', eat],
+            ['Take',take],
+            ['See', see],
+            ['Shop',shop],
+            ['Sleep',sleep],
+            ['Etc',etc]
+          ]);
+  
+          var options = {
+            title: 'STATISTICS',
+            pieHole: 0.4,
+            width:500,
+            height:300
+          };
+          
+  
+          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+         
+          chart.draw(data2, options);
+        }
+        
+      //alert('dd');
+   }
+   
+   function DrawChart2()
+   {
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        if(budgetController.getExpense().totalExpense==0 )
+          {
+              return false;
+          }
+          
+        var card = budgetController.getExpense().totalCardExpense;
+        var cash = budgetController.getExpense().totalCashExpense;
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Card',     card],
+          ['Cash',      cash],
+          
+        ]);
+
+        var options = {
+          title: 'Card or Cash',
+          width:500,
+          height:300
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+        
+      }
+   }
+ 
+ 
+   $(document).ready(function(){
+          var expense,expenseTotal,idx,src,src_change,displayExpenseTotal;
+        $('.expense_icon_collection ul li').click(function(){
+            
+              expense = ['.eat','.take','.see','.shop','.sleep','.etc'];
+              src=[ 'background-image: url(image/eat.png)','background-image: url(image/take.png)','background-image: url(image/see.png)',
+              'background-image: url(image/shop.png)','background-image: url(image/sleep.png)','background-image: url(image/etc.png)'];
+              src_change=['url(image/eat_change.png)','url(image/take_change.png)','url(image/see_change.png)'
+              ,'url(image/shop_change.png)','url(image/sleep_change.png)','url(image/etc_change.png)'];
+              
+              idx = $(this).index();
+              selectIdx = idx;
+              selectClass =expense[idx];
+              
+              expenseTotal = ['.eatTotal','.takeTotal','.seeTotal','.shopTotal','.sleepTotal','.etcTotal'];
+              selectTotalIdx = idx;
+              selectTotalClass = expenseTotal[idx];
+              displayExpenseTotal = ['.displayEatTotal','.displayTakeTotal','.displaySeeTotal','.displayShopTotal','.displaySleepTotal','.displayEtcTotal'];
+            displayExpenseTotalClass=displayExpenseTotal[selectIdx];
+          $(this).addClass('on').siblings().removeClass();
+           
+          $(expense[idx]).css('display','block');
+          $(expenseTotal[idx]).css('display','block');
+          for(i=0;i<expense.length;i++){
+            $(expense[i]).not($(expense[idx])).css('display','none');
+            $(expenseTotal[i]).not($(expenseTotal[idx])).css('display','none');
+            
+          } 
+         
+          document.getElementById("display").value = "";
+        });
+        
+        
+        DrawChart(); 
+        DrawChart2()//챠트그리기 
+   })
+   
+   
+  </script>
 </body>
 </html>
