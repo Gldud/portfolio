@@ -2,10 +2,7 @@
   margin: 0;
   padding: 0;
 }
-html {
-  width: 100%;
-  height: 100%;
-}
+html,
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -25,11 +22,11 @@ body {
   top: 0;
   background-color: rgba(0, 0, 0, 0.8);
 }
-li {
-  list-style: none;
-}
 a {
   text-decoration: none;
+}
+li {
+  list-style: none;
 }
 .clearfix::after {
   content: "";
@@ -41,18 +38,44 @@ a {
   width: 100%;
   margin: 0 auto;
 }
+.alert {
+  background-color: #000;
+  width: 300px;
+  height: 200px;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  animation: modalAnim 6s ease-in-out forwards;
+}
+@keyframes modalAnim {
+  0% {
+    transform: translate(-500%, -50%) rotate(-90deg);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(500%, -50%) rotate(90deg);
+    opacity: 0;
+  }
+}
 header {
   width: 100%;
   height: 50px;
   background-color: #13458c;
 }
-header button.mobile-menu {
+header button {
   display: inline-block;
   background: none;
   border: none;
   display: none;
 }
-header button.mobile-menu span {
+header button span.mobile-menu {
   background-image: url(../image/menu.png);
   background-repeat: no-repeat;
   display: inline-block;
@@ -61,11 +84,8 @@ header button.mobile-menu span {
   margin-top: 15px;
   margin-left: 12px;
   background-size: cover;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
 }
-header button.mobile-menu:focus {
+header button:focus {
   outline: none;
 }
 header .search {
@@ -88,17 +108,15 @@ header .search span {
 }
 header .top-btn {
   float: right;
-  margin-right: 15px;
 }
 header .top-btn .btn {
   display: inline-block;
-  padding: 5px 20px;
+  padding: 5px 15px;
   background-color: #60C9FF;
-  border-radius: 20px;
+  border-radius: 200px;
   text-decoration: none;
   color: #fff;
   font-size: 70%;
-  margin-right: 5px;
   text-transform: uppercase;
   margin-top: 11.5px;
 }
@@ -108,9 +126,8 @@ header .top-btn .logout {
 nav {
   float: left;
   width: 13.333%;
-  height: 935px;
+  height: 950px;
   background-color: #314048;
-  overflow-y: hidden;
 }
 nav button {
   background: none;
@@ -118,17 +135,10 @@ nav button {
   padding-left: 10px;
   padding-top: 10px;
   text-align: right;
-  cursor: pointer;
   display: none;
 }
 nav button:focus {
   outline: none;
-}
-nav button i {
-  color: #F6F2EA;
-}
-nav button span {
-  color: #F6F2EA;
 }
 nav ul {
   margin: 0 auto;
@@ -160,24 +170,12 @@ nav li:hover a {
 nav li:hover i {
   color: #fff;
 }
-nav li:first-child {
-  margin-top: 20px;
-}
 nav li:first-child a {
   text-transform: capitalize;
   font-size: 105%;
 }
 nav li:first-child i {
   font-size: 105%;
-}
-nav li:first-child:hover {
-  background-color: #314048;
-}
-nav li:first-child:hover a {
-  color: #d3d3d3;
-}
-nav li:first-child:hover i {
-  color: #d3d3d3;
 }
 .main-contents {
   width: 60%;
@@ -197,7 +195,6 @@ nav li:first-child:hover i {
   display: inline-block;
   position: absolute;
   top: 10%;
-  cursor: pointer;
   left: 90%;
   display: none;
 }
@@ -205,9 +202,6 @@ nav li:first-child:hover i {
   outline: none;
 }
 .main-contents h2 button.chart-button span {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
   width: 32px;
   height: 32px;
   display: inline-block;
@@ -242,10 +236,8 @@ nav li:first-child:hover i {
   display: inline-block;
   color: #fff;
   line-height: 30px;
-  width: 6.5%;
-  padding: 0 1%;
+  padding-left: 40px;
   font-size: 85%;
-  text-align: center;
 }
 .main-contents .date_bar ul li i {
   color: #fff;
@@ -256,9 +248,8 @@ nav li:first-child:hover i {
 }
 .main-contents .expense_icon_collection ul li {
   display: inline-block;
-  padding: 0 1.5%;
-  width: 7%;
-  margin: 0 2%;
+  padding: 0 10px;
+  margin: 0 30px;
 }
 .main-contents .expense_icon_collection ul li .icon {
   display: inline-block;
@@ -267,9 +258,6 @@ nav li:first-child:hover i {
   background-size: contain;
   width: 40px;
   height: 40px;
-  text-indent: 100%;
-  overflow: hidden;
-  white-space: nowrap;
 }
 .main-contents .expense_icon_collection ul li .eati {
   background-image: url(../image/eat_change.png);
@@ -311,7 +299,7 @@ nav li:first-child:hover i {
 .main-contents .container .expenses__list {
   margin-top: 15px;
   float: left;
-  width: 48%;
+  width: 48.88%;
   height: 450px;
   background-color: #edf0f2;
   padding: 20px 60px;
@@ -336,9 +324,6 @@ nav li:first-child:hover i {
   height: 55px;
   border: none;
   background-repeat: no-repeat;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
   background-size: cover;
 }
 .main-contents .container .expenses__list button.add:focus {
@@ -401,7 +386,8 @@ nav li:first-child:hover i {
 }
 .main-contents .container .calculator {
   background-color: #e5e5e5;
-  width: 32%;
+  width: 33.33%;
+  max-width: 300px;
   height: 450px;
   float: right;
   margin-top: 15px;
@@ -418,13 +404,10 @@ nav li:first-child:hover i {
   display: block;
   display: none;
 }
-.main-contents .container .calculator button.close:focus {
-  outline: none;
-}
 .main-contents .container .calculator button.close span.close-button {
   width: 32px;
   height: 32px;
-  display: block;
+  display: inline-block;
   background-image: url(../image/close.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -510,7 +493,7 @@ nav li:first-child:hover i {
 .main-contents .container .calculator .add__btn {
   width: 100%;
   height: 50px;
-  background-color: #4fc3ff;
+  background-color: #60C9FF;
   margin-top: 10px;
   text-align: center;
   line-height: 50px;
@@ -709,13 +692,12 @@ nav li:first-child:hover i {
   padding-left: 5px;
 }
 @media screen and (max-width: 1200px) {
-  header button.mobile-menu {
+  header button {
     display: inline-block;
   }
   nav {
     display: none;
     width: 200px;
-    overflow-y: visible;
   }
   nav ul li {
     width: 100%;
@@ -795,15 +777,6 @@ nav li:first-child:hover i {
   }
 }
 @media screen and (max-width: 768px) {
-  .wrapper .main-contents .date_bar ul li {
-    width: 8.45%;
-  }
-  .wrapper .main-contents .date_bar ul li:nth-child(10) {
-    display: none;
-  }
-  .wrapper .main-contents .date_bar ul li:nth-child(9) {
-    display: none;
-  }
   .wrapper .chart .donut #donutchart {
     left: 56%;
     transform: translateX(-50%);
@@ -824,21 +797,5 @@ nav li:first-child:hover i {
     top: 310px;
     width: 100%;
     left: 0;
-  }
-}
-@media screen and (max-width: 480px) {
-  .wrapper .main-contents .expense_icon_collection ul li {
-    width: 19%;
-    padding: 0;
-    margin: 1.5% 6%;
-  }
-  .wrapper .main-contents .date_bar ul li {
-    width: 11.4%;
-  }
-  .wrapper .main-contents .date_bar ul li:nth-child(7) {
-    display: none;
-  }
-  .wrapper .main-contents .date_bar ul li:nth-child(8) {
-    display: none;
   }
 }

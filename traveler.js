@@ -254,9 +254,9 @@ var UIController = (function(){
           document.activeElement.blur();
         },
         displayBudget:function(obj){
-            document.querySelector(selectTotalClass).children[0].children[1].children[0].textContent = obj.totalExpense;
-            document.querySelector(selectTotalClass).children[1].children[1].children[0].textContent = obj.totalCard;
-            document.querySelector(selectTotalClass).children[2].children[1].children[0].textContent = obj.totalCash;
+            document.querySelector(selectTotalClass).children[1].children[0].children[1].textContent = obj.totalExpense;
+            document.querySelector(selectTotalClass).children[0].children[0].children[1].children[1].textContent = obj.totalCard;
+            document.querySelector(selectTotalClass).children[0].children[1].children[1].children[1].textContent = obj.totalCash;
             document.querySelector(DOMstrings.travelExpenses).textContent=obj.travelExpense;
             document.querySelector(displayExpenseTotalClass).textContent=obj.totalExpense;
             document.querySelector(".card").textContent = obj.totalCardExpense;
@@ -339,7 +339,86 @@ var controller = (function(budgetCtrl, UICtrl){
 })(budgetController,UIController);
 controller.init();        
 
+function DrawChart()
+   {
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+       
+     
+       function drawChart() {
+          //var eat=budgetController.getExpense().eatExpense;
+          //alert(eat);
+          
+          if(budgetController.getExpense().totalExpense==0 )
+          {
+              return false;
+          }
+          
+          var eat=budgetController.getExpense().eatExpense;
+          var take=budgetController.getExpense().takeExpense;
+          var see= budgetController.getExpense().seeExpense;
+          var shop = budgetController.getExpense().shopExpense;
+          var sleep=budgetController.getExpense().sleepExpense;
+          var etc =budgetController.getExpense().etcExpense;
+          
+       
+          var data2 = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Eat', eat],
+            ['Take',take],
+            ['See', see],
+            ['Shop',shop],
+            ['Sleep',sleep],
+            ['Etc',etc]
+          ]);
+  
+          var options = {
+            title: 'STATISTICS',
+            pieHole: 0.4,
+            width:500,
+            height:300,
+            colors:['#ffcc33','#a840f4','#f7484e','#000066','#008080','#ff00ff']
+          };
+          
+  
+          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+         
+          chart.draw(data2, options);
+        }
+    }
+   
+   function DrawChart2()
+   {
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        if(budgetController.getExpense().totalExpense==0 )
+          {
+              return false;
+          }
+          
+        var card = budgetController.getExpense().totalCardExpense;
+        var cash = budgetController.getExpense().totalCashExpense;
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Card',     card],
+          ['Cash',     cash],
+          
+        ]);
 
+        var options = {
+          title: 'Card or Cash',
+          width:500,
+          height:300,
+          
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+        
+      }
+   }
 function addChar(item){
      var ori = document.getElementById("display").value;
      ori = ori+item;
